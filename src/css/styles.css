@@ -1,0 +1,67 @@
+.wrap {
+	display: table, inline block;
+    height: 500px;
+    max-height: 500px;
+    width: 500px;
+    max-width: 500px;
+    border: 1px solid black;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.thread_wrap {
+    display: table, inline block;
+    height: 200px;
+    max-height: 200px;
+    width: 400px;
+    max-width: 400px;
+    border: 1px solid black;
+    overflow: auto;   
+    border-radius: 10px;
+}
+
+.limit {
+	width: 470px;
+	word-wrap: break-word;
+}
+
+.cell {
+	display: table-cell;
+    vertical-align: top;
+    padding: 5px;
+}
+
+#mmessage {
+    display: block;
+    padding: 5px;
+}
+
+#name {
+	color: blue;
+}
+
+#date {
+	float: right;
+	font-size: 12px;
+}
+
+.column {
+    float: left;
+    padding-right: 15px;
+}
+
+button {
+    float: right;
+}
+
+.thread {
+    height: 50px;
+    max-height: 50px;
+    width: 380px;
+    max-width: 380px;
+}
+
+.thread:hover {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
