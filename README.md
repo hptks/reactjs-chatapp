@@ -1,4 +1,4 @@
 # reactjs-chatapp
-A ReactJS app implemented with Flux.
+A ReactJS chat app implemented with Flux.
 
 Description coming soon ;).
