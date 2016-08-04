@@ -18,6 +18,11 @@ export default class MessageSection extends React.Component {
 		MessageStore.on('load', this.getMessage);
 	}
 
+	componentWillUnmount() {
+		MessageStore.removeListener('create', this.getMessage);
+		MessageStore.removeListener('load', this.getMessage);
+	}
+
 	getMessages() {
 		this.setState({
 			messages: MessageStore.getMessages() 
