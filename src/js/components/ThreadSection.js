@@ -7,22 +7,25 @@ import ThreadStore from '../stores/ThreadStore';
 export default class ThreadSection extends React.Component {
 	constructor() {
 		super();
+		this.thread=this.getThreads.bind(this);
 		this.state={
 			threads: ThreadStore.getThreads()
 		};
 	}
 
 	componentWillMount() {
-		ThreadStore.on('load', () => {
-			this.setState({
-				threads: ThreadStore.getThreads()
-			});
-		});
+		ThreadStore.on('load', this.getThread);
+		ThreadStore.on('add', this.getThread);
+	}
 
-		ThreadStore.on('add', () => {
-			this.setState({
-				threads: ThreadStore.getThreads()
-			});
+	componentWillUnmount() {
+		ThreadStore.removeListener('load', this.getThread);
+		ThreadStore.removeListener('add', this.getThread);
+	}
+
+	getThreads() {
+		this.setState({
+			threads: ThreadStore.getThreads()
 		});
 	}
 
