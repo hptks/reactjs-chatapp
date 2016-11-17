@@ -7,25 +7,22 @@ import MessageStore from '../stores/MessageStore';
 export default class MessageSection extends React.Component {
 	constructor() {
 		super();
-		this.getMessage=this.getMessages.bind(this);
 		this.state={
 			messages: MessageStore.getMessages()
 		};
 	}
 
 	componentWillMount() {
-		MessageStore.on('create', this.getMessage);
-		MessageStore.on('load', this.getMessage);
-	}
+		MessageStore.on('create', () => {
+			this.setState({
+				messages: MessageStore.getMessages() 
+			});
+		});
 
-	componentWillUnmount() {
-		MessageStore.removeListener('create', this.getMessage);
-		MessageStore.removeListener('load', this.getMessage);
-	}
-
-	getMessages() {
-		this.setState({
-			messages: MessageStore.getMessages() 
+		MessageStore.on('load', () => {
+			this.setState({
+				messages: MessageStore.getMessages() 
+			});
 		});
 	}
 
